@@ -1,7 +1,7 @@
 {
   "name": "simple-level-log",
-  "version": "1.0.4",
-  "description": "Simple easy to use level logger based on console. Developers can control log output based on current log level as well as indivdual control flags.",
+  "version": "1.0.5",
+  "description": "Simple easy to use level logger based on console. Developers can control log output based on current log level as well as indivdual control flags. Super useful for local as well as cloud applications.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,7 +23,10 @@
     "debug",
     "trace",
     "verbose",
-    "easy"
+    "easy",
+    "serverless",
+    "lambda"
+
   ],
   "author": "NuITTake (NuITTake@GMail.Com)",
   "license": "MIT"

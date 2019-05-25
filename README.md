@@ -22,7 +22,7 @@ Please see index.js for additional examples.
 
 ```
 const logger = require('simple-level-log/logger');
-logger.logStatus()
+logger.logStatus();
 
 
 Output:
@@ -37,7 +37,7 @@ isErrorOn: true
 Test: Finished.
 ```
 
-## Example-2: Set level to INFO so that INFO, WARN, ERROR will be active. Turn on lower ranking methods like verbose. Notice that debug and trace methods in effect.
+## Example-2: How to make bulk chanage and how to control individual metohds
 
 ```
 const logger = require('simple-level-log/logger');
@@ -52,9 +52,9 @@ function testLogger() {
 }
 
 console.log('Test: Stated.');
-logger.setAllOff();
-logger.setLeve(logger.Leveles.INFO);
-logger.isVerboseOn = true;
+logger.setAllOff(); // All log methods are now turned off. You can call logger.logStatus(); to verify.
+logger.setLeve(logger.Leveles.INFO); // Turns on info, warn, and error mothods. verbose, trace, and debug methods are now ineffective.
+logger.isVerboseOn = true; // verbose methud has been truned on.
 testLogger();
 console.log('Test: Finished.');
 

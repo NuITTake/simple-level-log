@@ -1,0 +1,30 @@
+{
+  "name": "simple-level-log",
+  "version": "1.0.4",
+  "description": "Simple easy to use level logger based on console. Developers can control log output based on current log level as well as indivdual control flags.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NuITTake/simple-level-log.git"
+  },
+  "keywords": [
+    "simple",
+    "level",
+    "logging",
+    "based",
+    "on",
+    "console",
+    "error",
+    "warn",
+    "info",
+    "debug",
+    "trace",
+    "verbose",
+    "easy"
+  ],
+  "author": "NuITTake (NuITTake@GMail.Com)",
+  "license": "MIT"
+}

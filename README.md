@@ -16,13 +16,14 @@ None
 npm i simple-level-log
 ```
 
-## Example-1: Print status of loging methods.
+Please see index.js for additional examples.
 
-Please see index.js for detail sample.
+## Example-1: Print status of loging methods.
 
 ```
 const logger = require('simple-level-log/logger');
 logger.logStatus()
+
 
 Output:
 
@@ -36,13 +37,27 @@ isErrorOn: true
 Test: Finished.
 ```
 
-## Example-2: Print status of loging methods.
-
-Please see index.js for detail sample.
+## Example-2: Set level to INFO so that INFO, WARN, ERROR will be active. Turn on lower ranking methods like verbose. Notice that debug and trace methods in effect.
 
 ```
 const logger = require('simple-level-log/logger');
-logger.logStatus()
+
+function testLogger() {
+    logger.verbose('This is a verbose message');
+    logger.trace('This is a trace message');
+    logger.debug('This is a debug message');
+    logger.info('This is an info message');
+    logger.warn('This is a warn message');
+    logger.error(new Error('This is an error message'));
+}
+
+console.log('Test: Stated.');
+logger.setAllOff();
+logger.setLeve(logger.Leveles.INFO);
+logger.isVerboseOn = true;
+testLogger();
+console.log('Test: Finished.');
+
 
 Output:
 
@@ -67,11 +82,11 @@ Test: Finished.
 
 ## Contributing
 
-Please email me on nuittake@gmail.com if you wish to extend a helping hand. 
+Please email me on NuITTake@GMail.Com if you wish to extend a helping hand. 
 
 ## Authors
 
-* **New IT Take** - *email address:* - [PurpleBooth](NuITTake@GMail.Com)
+* **New IT Take** - *email address:* - [NuITTake@GMail.Com]
 
 ## License
 

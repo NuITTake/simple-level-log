@@ -1,54 +1,46 @@
 const logger = require('./logger.js')
 
-function testLogger() {
-    logger.logStatus()
-    logger.verbose('This is a verbose message')
-    logger.trace('This is a trace message')
-    logger.debug('This is a debug message')
-    logger.info('This is an info message')
-    logger.warn('This is a warn message')
-    logger.error(new Error('This is an error message'))
+function testLogger(testDescription) {
+    console.log('=================================================================================');
+    console.log(`${testDescription}: Begin.`);
+    console.log('---------------------------------------------------------------------------------');
+    logger.logStatus();
+    console.log('---------------------------------------------------------------------------------');
+    logger.error(new Error('This is an error message'));
+    logger.warn('This is a warn message');
+    logger.info('This is an info message');
+    logger.log('This is a log message');
+    logger.debug('This is a debug message');
+    logger.trace('This is a trace message');
+    logger.verbose('This is a verbose message');
+    console.log('---------------------------------------------------------------------------------');
+    console.log(`${testDescription}: End.`);
+    console.log('=================================================================================');
 }
 
-console.log('Test with default settings: Started.')
-    // Test with default settings 
-testLogger()
-console.log('Test with default settings: Finished.')
-console.log('==============================================================')
+
+// Test with default settings 
+testLogger('Test with default settings');
 
 // Test with All On
-console.log('Test with all ON settings: Started.')
-logger.setAllOn()
-testLogger()
-console.log('Test with all ON settings: Finished.')
-console.log('==============================================================')
+logger.setAllOn();
+testLogger('Test with all ON');
 
 // Test with All Off
-console.log('Test with all OFF settings: Started.')
-logger.setAllOff()
-testLogger()
-console.log('Test with all OFF settings: Finished.')
-console.log('==============================================================')
+logger.setAllOff();
+testLogger('Test with all OFF');
 
 // Test with isDebugOn = true 
-console.log('Test with isDebugOn = true: Started.')
-logger.isDebugOn = true
-testLogger()
-console.log('Test with isDebugOn = true: Finished.')
-console.log('==============================================================')
+logger.isDebugOn = true;
+testLogger('Test with isDebugOn = true');
 
-// Test by setting level to WARN, this will set isWarnOn and isErrorOn all other lower ranking levels to false.
-console.log('Test by setting level to WARN: Started.')
-logger.setLeve(logger.Leveles.WARN)
-testLogger()
-console.log('Test by setting level to WARN: Finished.')
-console.log('==============================================================')
+// Test by setting level to WARN, this will set isWarnOn and isErrorOn to true and others to false.
+logger.setLeve(logger.Levels.WARN);
+testLogger('Test by setting level to WARN');
 
-// Test with All Off, level is set to INFO and isVerboseOn set to true, With this trace and debug will be turned off.
-console.log('Test with All Off, level is set to INFO and isVerboseOn set to true: Started.')
-logger.setAllOff()
-logger.setLeve(logger.Leveles.INFO)
-logger.isVerboseOn = true
-testLogger()
-console.log('Test with All Off, level is set to INFO and isVerboseOn set to true: Finished.')
-console.log('==============================================================')
+// Test with All Off, level is set to INFO and isVerboseOn set to true, with this log, debug, and trace will be turned off.
+console.log(': Started.');
+logger.setAllOff();
+logger.setLeve(logger.Levels.INFO);
+logger.isVerboseOn = true;
+testLogger('Test with All Off, level is set to INFO and isVerboseOn set to true');

@@ -65,7 +65,7 @@ isVerboseOn: true
 ### Example-2: Test with default settings (by default all methods are on).
 
 ```
-const logger = require('./logger.js')
+const logger = require('simple-level-log/logger');
 
 function testLogger(testDescription) {
     console.log('=================================================================================');
@@ -137,7 +137,7 @@ Test with default settings: End.
 ### Example-3: Turn OFF all the methods.
 
 ```
-const logger = require('./logger.js')
+const logger = require('simple-level-log/logger');
 
 function testLogger(testDescription) {
     console.log('=================================================================================');
@@ -182,7 +182,7 @@ Test with all OFF: End.
 ### Example-4: Set level to INFO (which will implicitly turn on info, warn, and error methods amd other methods off) and explicitly turn on verbose
 
 ```
-const logger = require('./logger.js')
+const logger = require('simple-level-log/logger');
 
 function testLogger(testDescription) {
     console.log('=================================================================================');

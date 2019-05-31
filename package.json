@@ -1,6 +1,6 @@
 {
   "name": "simple-level-log",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Simple easy to use level logger based on console. Developers can control log output based on current log level as well as indivdual control flags. Super useful for local as well as cloud applications.",
   "main": "index.js",
   "scripts": {
@@ -26,8 +26,12 @@
     "easy",
     "serverless",
     "lambda"
-
   ],
   "author": "NuITTake (NuITTake@GMail.Com)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3"
+  }
 }

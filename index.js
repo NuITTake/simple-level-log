@@ -1,25 +1,24 @@
-const logger = require('./logger.js')
+const logger = require('./logger.js');
 
 function testLogger(testDescription) {
-    console.log('=================================================================================');
-    console.log(`${testDescription}: Begin.`);
-    console.log('---------------------------------------------------------------------------------');
-    logger.logStatus();
-    console.log('---------------------------------------------------------------------------------');
-    logger.error(new Error('This is an error message'));
-    logger.warn('This is a warn message');
-    logger.info('This is an info message');
-    logger.log('This is a log message');
-    logger.debug('This is a debug message');
-    logger.trace('This is a trace message');
-    logger.verbose('This is a verbose message');
-    console.log('---------------------------------------------------------------------------------');
-    console.log(`${testDescription}: End.`);
-    console.log('=================================================================================');
+  console.log('=================================================================================');
+  console.log(`${testDescription}: Begin.`);
+  console.log('---------------------------------------------------------------------------------');
+  logger.logStatus();
+  console.log('---------------------------------------------------------------------------------');
+  logger.error(new Error('This is an error message'));
+  logger.warn('This is a warn message');
+  logger.info('This is an info message');
+  logger.log('This is a log message');
+  logger.debug('This is a debug message');
+  logger.trace('This is a trace message');
+  logger.verbose('This is a verbose message');
+  console.log('---------------------------------------------------------------------------------');
+  console.log(`${testDescription}: End.`);
+  console.log('=================================================================================');
 }
 
-
-// Test with default settings 
+// Test with default settings
 testLogger('Test with default settings');
 
 // Test with All On
@@ -30,17 +29,16 @@ testLogger('Test with all ON');
 logger.setAllOff();
 testLogger('Test with all OFF');
 
-// Test with isDebugOn = true 
+// Test with isDebugOn = true
 logger.isDebugOn = true;
 testLogger('Test with isDebugOn = true');
 
 // Test by setting level to WARN, this will set isWarnOn and isErrorOn to true and others to false.
-logger.setLeve(logger.Levels.WARN);
+logger.setLevel(logger.Levels.WARN);
 testLogger('Test by setting level to WARN');
 
 // Test with All Off, level is set to INFO and isVerboseOn set to true, with this log, debug, and trace will be turned off.
-console.log(': Started.');
 logger.setAllOff();
-logger.setLeve(logger.Levels.INFO);
+logger.setLevel(logger.Levels.INFO);
 logger.isVerboseOn = true;
 testLogger('Test with All Off, level is set to INFO and isVerboseOn set to true');

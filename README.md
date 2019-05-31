@@ -8,6 +8,41 @@ Super lightweight easy to use Javascript/Node.js package to write an applicaiton
 npm i simple-level-log
 ```
 
+### Example-0: A quick overview of how to use logger.
+
+```
+const logger = require('simple-level-log/logger');
+logger.setLevel(Levels.LOG);
+
+// When level is set to LOG the following methods will be active 
+logger.error(new Error('This is an error message'));
+logger.warn('This is a warn message');
+logger.info('This is an info message');
+logger.log('This is a log message');
+
+// When level is set to LOG the following methods will be inactive 
+logger.debug('This is a debug message');
+logger.trace('This is a trace message');
+logger.verbose('This is a verbose message');
+
+
+Output:
+
+Error: This is an error message
+    at Object.<anonymous> (C:\Development\Node.js\simple-level-log\index.js:8:14)
+    at Module._compile (internal/modules/cjs/loader.js:701:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:712:10)
+    at Module.load (internal/modules/cjs/loader.js:600:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:539:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:531:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:754:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:622:3)
+[W]: This is a warn message
+[I]: This is an info message
+[L]: This is a log message
+```
+
 ### Example-1: Print status of loging methods.
 
 ```
@@ -133,7 +168,7 @@ Test with all OFF: Begin.
 isErrorOn: false
 isWarnOn: false
 isInfoOn: false
-isLogOn: true
+isLogOn: false
 isDebugOn: false
 isTraceOn: false
 isVerboseOn: false
@@ -144,7 +179,7 @@ Test with all OFF: End.
 ```
 
 
-### Example-4: Set level to INFO, which will turn on info, warn, and error methods.
+### Example-4: Set level to INFO (which will implicitly turn on info, warn, and error methods amd other methods off) and explicitly turn on verbose
 
 ```
 const logger = require('./logger.js')
@@ -167,8 +202,8 @@ function testLogger(testDescription) {
     console.log('==============================================================');
 }
 
-// Test with default settings 
-testLogger('Test with default settings');
+// Test with All Off, level is set to INFO and isVerboseOn set to true 
+testLogger('Test with All Off, level is set to INFO and isVerboseOn set to true');
 logger.setAllOff();
 logger.setLeve(logger.Levels.INFO);
 logger.isVerboseOn = true;
@@ -181,7 +216,7 @@ Test with All Off, level is set to INFO and isVerboseOn set to true: Begin.
 isErrorOn: true
 isWarnOn: true
 isInfoOn: true
-isLogOn: true
+isLogOn: false
 isDebugOn: false
 isTraceOn: false
 isVerboseOn: true

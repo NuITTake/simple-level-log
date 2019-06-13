@@ -274,7 +274,7 @@ Trace: This outout has a stack attached to it and it has been prefixed with Trac
 const logger = require('simple-level-log/logger');
 
 logger.setAllOff();
-logger.isTraceOn = false;
+logger.isTraceOn = true;
 logger.isTtraceStackOn = false;
 logger.trace(`This outout has a no stack attached to it and it has been prefixed with [T]:`);
 

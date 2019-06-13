@@ -179,7 +179,7 @@ Test with all OFF: End.
 ```
 
 
-### Example-4: Set level to INFO (which will implicitly turn on info, warn, and error methods amd other methods off) and explicitly turn on verbose
+### Example-4: Set level to INFO (which will implicitly turn on info, warn, and error methods and turn off remaining methods) and explicitly turn on verbose
 
 ```
 const logger = require('simple-level-log/logger');
@@ -240,6 +240,49 @@ Test with All Off, level is set to INFO and isVerboseOn set to true: End.
 =================================================================================
 ```
 
+
+### Example-5: Effect of isTtraceStackOn when set to true
+
+```
+const logger = require('simple-level-log/logger');
+
+logger.setAllOff();
+logger.isTraceOn = true;
+logger.isTtraceStackOn = true; // By default isTtraceStackOn is true. This statement is just added for reading clarity.
+logger.trace(`This outout has a stack attached to it and it has been prefixed with Trace:`);
+
+
+Output:
+
+Trace: This outout has a stack attached to it and it has been prefixed with Trace:
+    at Object.trace (D:\GitHub\Node.js\simple-level-log\logger.js:125:15)
+    at testLogger (D:\GitHub\Node.js\simple-level-log\index.js:14:10)
+    at Object.<anonymous> (D:\GitHub\Node.js\simple-level-log\index.js:50:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:829:12)
+    at startup (internal/bootstrap/node.js:283:19)
+```
+
+
+### Example-6: Effect of isTtraceStackOn when set to false
+
+```
+const logger = require('simple-level-log/logger');
+
+logger.setAllOff();
+logger.isTraceOn = false;
+logger.isTtraceStackOn = false;
+logger.trace(`This outout has a no stack attached to it and it has been prefixed with [T]:`);
+
+
+Output:
+
+[T]: This outout has a no stack attached to it and it has been prefixed with [T]:
+```
 #### Please see [index.js](https://github.com/NuITTake/simple-level-log/blob/master/index.js) for additional examples.
 
 ## Bugs and Issues

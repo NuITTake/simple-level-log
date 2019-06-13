@@ -42,3 +42,15 @@ logger.setAllOff();
 logger.setLevel(logger.Levels.INFO);
 logger.isVerboseOn = true;
 testLogger('Test with All Off, level is set to INFO and isVerboseOn set to true');
+
+// Test effect of isTtraceStackOn is true
+logger.setAllOff();
+logger.isTraceOn = true;
+logger.isTtraceStackOn = true; // By default isTtraceStackOn is true. This statement is just added for reading clarity.
+testLogger(`Test Effect of isTtraceStackOn when set to ${logger.isTtraceStackOn}`);
+
+// Test effect of isTtraceStackOn is false
+logger.setAllOff();
+logger.isTraceOn = true;
+logger.isTtraceStackOn = false;
+testLogger(`Test Effect of isTtraceStackOn when set to ${logger.isTtraceStackOn}`);

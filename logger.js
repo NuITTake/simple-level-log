@@ -10,6 +10,8 @@ module.exports = {
   isTraceOn: true,
   isVerboseOn: true,
 
+  isTtraceStackOn: true,
+
   // Higher the level number larger the log output size.
   Levels: {
     NONE: 0,
@@ -48,6 +50,8 @@ module.exports = {
     this.isDebugOn = true;
     this.isTraceOn = true;
     this.isVerboseOn = true;
+
+    this.isTtraceStackOn = true;
 
     switch (newLevel) {
       case this.Levels.NONE:
@@ -116,7 +120,12 @@ module.exports = {
     if (true !== this.isTraceOn) {
       return;
     }
-    console.trace(`[T]: ${message}`);
+
+    if (true === this.isTtraceStackOn) {
+      console.trace(message);
+      return;
+    }
+    console.log(`[T]: ${message}`);
   },
 
   verbose(message) {

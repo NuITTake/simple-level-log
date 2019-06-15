@@ -10,7 +10,7 @@ module.exports = {
   isTraceOn: true,
   isVerboseOn: true,
 
-  isTtraceStackOn: true,
+  isTraceStackOn: true,
 
   // Higher the level number larger the log output size.
   Levels: {
@@ -36,7 +36,7 @@ module.exports = {
   },
 
   setLevel(level) {
-    let newLevel = level;
+    let newLevel = level || this.Levels.ALL;
     if (level < this.Levels.NONE) {
       newLevel = this.Levels.NONE;
     } else if (level > this.Levels.ALL) {
@@ -50,8 +50,6 @@ module.exports = {
     this.isDebugOn = true;
     this.isTraceOn = true;
     this.isVerboseOn = true;
-
-    this.isTtraceStackOn = true;
 
     switch (newLevel) {
       case this.Levels.NONE:
@@ -84,22 +82,25 @@ module.exports = {
     if (true !== this.isErrorOn) {
       return;
     }
-    // console.error('[E]: ' + e);
-    console.error(e);
+    if (console.error) {
+      console.error(e);
+      return;
+    }
+    console.log(`[E]: ${e}`);
   },
 
   warn(message) {
     if (true !== this.isWarnOn) {
       return;
     }
-    console.warn(`[W]: ${message}`);
+    (console.warn || console.log)(`[W]: ${message}`);
   },
 
   info(message) {
     if (true !== this.isInfoOn) {
       return;
     }
-    console.info(`[I]: ${message}`);
+    (console.info || console.log)(`[I]: ${message}`);
   },
 
   log(message) {
@@ -113,7 +114,7 @@ module.exports = {
     if (true !== this.isDebugOn) {
       return;
     }
-    console.debug(`[D]: ${message}`);
+    (console.debug || console.log)(`[D]: ${message}`);
   },
 
   trace(message) {
@@ -121,7 +122,7 @@ module.exports = {
       return;
     }
 
-    if (true === this.isTtraceStackOn) {
+    if (true === this.isTraceStackOn && console.trace) {
       console.trace(message);
       return;
     }

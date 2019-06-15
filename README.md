@@ -241,14 +241,14 @@ Test with All Off, level is set to INFO and isVerboseOn set to true: End.
 ```
 
 
-### Example-5: Effect of isTtraceStackOn when set to true
+### Example-5: Effect of isTraceStackOn when set to true
 
 ```
 const logger = require('simple-level-log/logger');
 
 logger.setAllOff();
 logger.isTraceOn = true;
-logger.isTtraceStackOn = true; // By default isTtraceStackOn is true. This statement is just added for reading clarity.
+logger.isTraceStackOn = true; // By default isTraceStackOn is true. This statement is just added for reading clarity.
 logger.trace(`This outout has a stack attached to it and it has been prefixed with Trace:`);
 
 
@@ -268,14 +268,14 @@ Trace: This outout has a stack attached to it and it has been prefixed with Trac
 ```
 
 
-### Example-6: Effect of isTtraceStackOn when set to false
+### Example-6: Effect of isTraceStackOn when set to false
 
 ```
 const logger = require('simple-level-log/logger');
 
 logger.setAllOff();
 logger.isTraceOn = true;
-logger.isTtraceStackOn = false;
+logger.isTraceStackOn = false;
 logger.trace(`This outout has a no stack attached to it and it has been prefixed with [T]:`);
 
 

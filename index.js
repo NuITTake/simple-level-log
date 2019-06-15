@@ -43,14 +43,16 @@ logger.setLevel(logger.Levels.INFO);
 logger.isVerboseOn = true;
 testLogger('Test with All Off, level is set to INFO and isVerboseOn set to true');
 
-// Test effect of isTtraceStackOn is true
+console.log('=================================================================================');
+// Test effect of isTraceStackOn is true
 logger.setAllOff();
 logger.isTraceOn = true;
-logger.isTtraceStackOn = true; // By default isTtraceStackOn is true. This statement is just added for reading clarity.
-testLogger(`Test Effect of isTtraceStackOn when set to ${logger.isTtraceStackOn}`);
-
-// Test effect of isTtraceStackOn is false
+logger.isTraceStackOn = true; // By default isTraceStackOn is true. This statement is just added for reading clarity.
+logger.trace(`This outout has a stack attached to it and it has been prefixed with Trace:`);
+console.log('=================================================================================');
+// Test effect of isTraceStackOn is false
 logger.setAllOff();
 logger.isTraceOn = true;
-logger.isTtraceStackOn = false;
-testLogger(`Test Effect of isTtraceStackOn when set to ${logger.isTtraceStackOn}`);
+logger.isTraceStackOn = false;
+logger.trace(`This outout has a no stack attached to it and it has been prefixed with [T]:`);
+console.log('=================================================================================');

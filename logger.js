@@ -65,8 +65,9 @@ module.exports = {
       case this.Levels.DEBUG:
         this.isTraceOn = false;
       case this.Levels.TRACE:
-      default:
         this.isVerboseOn = false;
+      default:
+      //--- Do nothing.
     }
   },
 

@@ -56,3 +56,17 @@ logger.isTraceOn = true;
 logger.isTraceStackOn = false;
 logger.trace(`This outout has a no stack attached to it and it has been prefixed with [T]:`);
 console.log('=================================================================================');
+
+//--- Test of stringification
+logger.setAllOn();
+
+//--- stringification of an object
+const sampleObject = {
+  integer: 100,
+  string: 'This is a string member',
+  array: [1, 'Sample', 'array', 10.02]
+}
+logger.log(sampleObject);
+
+//--- stringification of a function 
+logger.log(logger.log);

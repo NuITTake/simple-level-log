@@ -283,6 +283,37 @@ Output:
 
 [T]: This outout has a no stack attached to it and it has been prefixed with [T]:
 ```
+
+
+### Example-7: Automatic stringification  
+
+```
+const logger = require('simple-level-log/logger');
+
+const sampleObject = {
+  integer: 100,
+  string: 'This is a string member',
+  array: [1, 'Sample', 'array', 10.02]
+}
+
+//--- Object stringification
+logger.log(sampleObject);
+//--- Function stringification
+logger.log(logger.info);
+
+
+Output:
+
+[L]: {"integer":100,"string":"This is a string member","array":[1,"Sample","array",10.02]}
+[L]: log(message) {
+    if (true !== this.isLogOn) {
+      return;
+    }
+    console.log(`[L]: ${this.stringify(message)}`);
+  }
+```
+
+
 #### Please see [index.js](https://github.com/NuITTake/simple-level-log/blob/master/index.js) for additional examples.
 
 ## Bugs and Issues
@@ -301,4 +332,4 @@ Please email to NuITTake@GMail.Com if you wish to extend a helping hand.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [ISC](https://opensource.org/licenses/ISC) License

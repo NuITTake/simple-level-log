@@ -33,6 +33,7 @@ module.exports = {
     console.log(`isDebugOn: ${this.isDebugOn}`);
     console.log(`isTraceOn: ${this.isTraceOn}`);
     console.log(`isVerboseOn: ${this.isVerboseOn}`);
+    console.log(`isTraceStackOn: ${this.isTraceStackOn}`);
   },
 
   setLevel(level) {
@@ -79,6 +80,17 @@ module.exports = {
     this.setLevel(this.Levels.NONE);
   },
 
+  stringify(message) {
+    switch (typeof message) {
+      case 'string':
+        return message;
+      case 'function':
+        return message.toString();
+      default:
+        return JSON.stringify(message);
+    }
+  },
+
   error(e) {
     if (true !== this.isErrorOn) {
       return;
@@ -87,53 +99,52 @@ module.exports = {
       console.error(e);
       return;
     }
-    console.log(`[E]: ${e}`);
+    console.log(`[E]: ${this.stringify(e)}`);
   },
 
   warn(message) {
     if (true !== this.isWarnOn) {
       return;
     }
-    (console.warn || console.log)(`[W]: ${message}`);
+    (console.warn || console.log)(`[W]: ${this.stringify(message)}`);
   },
 
   info(message) {
     if (true !== this.isInfoOn) {
       return;
     }
-    (console.info || console.log)(`[I]: ${message}`);
+    (console.info || console.log)(`[I]: ${this.stringify(message)}`);
   },
 
   log(message) {
     if (true !== this.isLogOn) {
       return;
     }
-    console.log(`[L]: ${message}`);
+    console.log(`[L]: ${this.stringify(message)}`);
   },
 
   debug(message) {
     if (true !== this.isDebugOn) {
       return;
     }
-    (console.debug || console.log)(`[D]: ${message}`);
+    (console.debug || console.log)(`[D]: ${this.stringify(message)}`);
   },
 
   trace(message) {
     if (true !== this.isTraceOn) {
       return;
     }
-
     if (true === this.isTraceStackOn && console.trace) {
-      console.trace(message);
+      console.trace(this.stringify(message));
       return;
     }
-    console.log(`[T]: ${message}`);
+    console.log(`[T]: ${this.stringify(message)}`);
   },
 
   verbose(message) {
     if (true !== this.isVerboseOn) {
       return;
     }
-    console.log(`[V]: ${message}`);
+    console.log(`[V]: ${this.stringify(message)}`);
   },
 };

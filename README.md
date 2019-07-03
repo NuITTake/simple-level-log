@@ -60,6 +60,7 @@ isLogOn: true
 isDebugOn: true
 isTraceOn: true
 isVerboseOn: true
+isTraceStackOn: true
 ```
 
 ### Example-2: Test with default settings (by default all methods are on).
@@ -100,6 +101,7 @@ isLogOn: true
 isDebugOn: true
 isTraceOn: true
 isVerboseOn: true
+isTraceStackOn: true
 ---------------------------------------------------------------------------------
 Error: This is an error message
     at testLogger (C:\Development\Node.js\simple-level-log\index.js:9:18)
@@ -157,8 +159,9 @@ function testLogger(testDescription) {
     console.log('==============================================================');
 }
 
-// Test with default settings 
-testLogger('Test with default settings');
+// Test with All Off
+logger.setAllOff();
+testLogger('Test with all OFF');
 
 
 Output:
@@ -172,6 +175,7 @@ isLogOn: false
 isDebugOn: false
 isTraceOn: false
 isVerboseOn: false
+isTraceStackOn: true
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Test with all OFF: End.
@@ -220,6 +224,7 @@ isLogOn: false
 isDebugOn: false
 isTraceOn: false
 isVerboseOn: true
+isTraceStackOn: true
 ---------------------------------------------------------------------------------
 Error: This is an error message
     at testLogger (C:\Development\Node.js\simple-level-log\index.js:9:18)
@@ -330,6 +335,10 @@ Please email to NuITTake@GMail.Com if you wish to extend a helping hand.
 
 * **Nu IT Take** - NuITTake@GMail.Com
 
-## License
+## This project is licensed under the [ISC License (ISC)](https://opensource.org/licenses/ISC)
 
-This project is licensed under the [ISC](https://opensource.org/licenses/ISC) License
+Copyright 2019 Nu IT Take (NuITTake@GMail.Com)
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.

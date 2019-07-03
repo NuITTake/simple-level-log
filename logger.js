@@ -37,7 +37,7 @@ module.exports = {
   },
 
   setLevel(level) {
-    let newLevel = level || this.Levels.ALL;
+    let newLevel = null == level ? this.Levels.ALL : level;
     if (level < this.Levels.NONE) {
       newLevel = this.Levels.NONE;
     } else if (level > this.Levels.ALL) {

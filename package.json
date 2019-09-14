@@ -1,6 +1,6 @@
 {
     "name": "simple-level-log",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "Simple easy to use level logger based on standard JavaScript console loging methods. Developers can control log output based on current log level as well as indivdual control flags. Super useful for local as well as cloud applications. Automatically stringifys objects, functions, etc.",
     "main": "index.js",
     "scripts": {

@@ -1,6 +1,6 @@
 # simple-level-log
 
-Super lightweight easy to use Javascript/Node.js package to write an applicaiton logs using varing level of detail. Like many other popular packages log level can be set as per your applicaiton need. However this package also allow you to selectively turn on or off each log method. 
+Super lightweight easy to use JavaScript/Node.js package to write an application logs using varying level of detail. Like many other popular packages log level can be set as per your application need. However, this package also allows you to selectively turn on or off each log method.
 
 ### Installing
 
